@@ -1,13 +1,19 @@
 <?php
+
 $host = "tramway.proxy.rlwy.net";
+$port = 24631;
 $user = "root";
-$pass = "DRuuxLLndrUguEfzDAMScNtXhbKRvBpf";
-$db   = "railway";
-$port = 36242;
+$password = "dNqBcWTWaeiyBjTilPfgYQDWDMVffarj";
+$database = "railway";
 
-$conn = mysqli_connect($host, $user, $pass, $db, $port);
+// koneksi
+$conn = new mysqli($host, $user, $password, $database, $port);
 
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+// cek koneksi
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
 }
+
+echo "Koneksi berhasil ke Railway MySQL!";
+
 ?>
